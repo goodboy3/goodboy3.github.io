@@ -2,6 +2,7 @@
 <html>
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <body>
     <!-- <button onclick=copyAndDownload()>下载</button> -->
@@ -13,23 +14,46 @@
 [红包]红包可立即提现
 [红包]复制此消息可自动填邀请码
 （红包48小时内有效）" />
-    <button class="copyBtn" data-clipboard-target="#copyVal">下载</button>
+
+    <a class="copyBtn" data-clipboard-target="#copyVal">
+        <img src='./WechatIMG180.jpeg' style="position: absolute;left:0;right:0" />
+    </a>
 
     <script type="text/javascript">
         // H5 plus事件处理  
+        var func = () => {
+            var copyBtn = new ClipboardJS('.copyBtn');
 
-        var copyBtn = new ClipboardJS('.copyBtn');
+            copyBtn.on("success", function (e) {
+                var u = navigator.userAgent,
+                    app = navigator.appVersion;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                //alert('是否是Android：'+isAndroid);
+                //alert('是否是iOS：'+isiOS);
+                if (isAndroid) {
+                    window.location.href =
+                        "https://imtt.dd.qq.com/16891/apk/A5AF3A31C9F672E6EF7963581151B9D1.apk?fsname=com.ss.android.article.lite_7.0.8_708.apk&csr=1bbd"
+                } else if (isiOS) {
+                    window.location.href =
+                        "https://apps.apple.com/cn/app/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E6%9E%81%E9%80%9F%E7%89%88/id1410120498"
+                }
+                // 复制成功
+                //alert(e.text)
+                //window.location.href = "https://imtt.dd.qq.com/16891/apk/A5AF3A31C9F672E6EF7963581151B9D1.apk?fsname=com.ss.android.article.lite_7.0.8_708.apk&csr=1bbd"
+            });
+            copyBtn.on("error", function (e) {
+                //复制失败；
+                console.log(e.action)
+            });
+        }
 
-        copyBtn.on("success", function (e) {
-            // 复制成功
-            window.location.href =
-
-                "https://imtt.dd.qq.com/16891/apk/A5AF3A31C9F672E6EF7963581151B9D1.apk?fsname=com.ss.android.article.lite_7.0.8_708.apk&csr=1bbd"
+        $(".copyBtn").on("click", function () {
+            func();
         });
-        copyBtn.on("error", function (e) {
-            //复制失败；
-            console.log(e.action)
-        });
+
+
+
 
         // window.location.href =
         //     "https://imtt.dd.qq.com/16891/apk/A5AF3A31C9F672E6EF7963581151B9D1.apk?fsname=com.ss.android.article.lite_7.0.8_708.apk&csr=1bbd"
