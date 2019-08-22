@@ -1,3 +1,39 @@
-ZStudio Start
+<!DOCTYPE html>
+<html>
 
-2222
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+<body>
+    <!-- <button onclick=copyAndDownload()>下载</button> -->
+    <!-- <object data="https://cdn.jsdelivr.net/gh/rgdsyesdg/cdn/outfile/adasset/id=352" type="image/gif"
+    style="width: 100%; animation: 1s ease 0s 1 normal both running gyqdtgo;"></object> -->
+    <input type="text" id="copyVal" readonly value="[红包]下载【今日头条极速版】
+[红包]填我邀请码【1829918571】
+[红包]你我各得最高【32元】红包
+[红包]红包可立即提现
+[红包]复制此消息可自动填邀请码
+（红包48小时内有效）" />
+    <button class="copyBtn" data-clipboard-target="#copyVal">下载</button>
+
+    <script type="text/javascript">
+        // H5 plus事件处理  
+
+        var copyBtn = new ClipboardJS('.copyBtn');
+
+        copyBtn.on("success", function (e) {
+            // 复制成功
+            window.location.href =
+
+                "https://imtt.dd.qq.com/16891/apk/A5AF3A31C9F672E6EF7963581151B9D1.apk?fsname=com.ss.android.article.lite_7.0.8_708.apk&csr=1bbd"
+        });
+        copyBtn.on("error", function (e) {
+            //复制失败；
+            console.log(e.action)
+        });
+
+        // window.location.href =
+        //     "https://imtt.dd.qq.com/16891/apk/A5AF3A31C9F672E6EF7963581151B9D1.apk?fsname=com.ss.android.article.lite_7.0.8_708.apk&csr=1bbd"
+    </script>
+</body>
+
+</html>
